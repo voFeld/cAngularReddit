@@ -2,10 +2,11 @@ app.controller('MainController', function($scope) {
     $scope.postsArray = [];
     $scope.votes = 0;
 
-    $scope.createPost = function(userInput){
+    $scope.createPost = function(userInput, userLink){
 
         post = {
             text: userInput,
+            link: userLink,
             votes: 0
         };
 

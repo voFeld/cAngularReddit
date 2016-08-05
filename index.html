@@ -2,20 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <title>Title</title>
-
-
 </head>
+
 <body ng-app="myApp">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        <div ng-controller="MainController">
+        <h1>Add New Post:</h1>
+            Title: <input type="text" ng-model="userInput"><br>
+            Link: <input type="text" ng-model="userLink"><br>
+        <button class="btn btn-default btn-lg"  type="submit" ng-click="createPost(userInput, userLink)">Add Post!</button>
 
-<div ng-controller="MainController">
-
-<input type="text" ng-model="userInput">
-<input type="submit" ng-click="createPost(userInput)">
-
-<div ng-repeat="post in postsArray | orderBy:'-votes'">{{post.text}}<button ng-click="voteUp()">My Score: {{post.votes}}</button></div>
-
-
+        <div ng-repeat="post in postsArray | orderBy:'-votes'">{{post.text}} <a ng-href="#">{{post.link}}</a>  <button class="btn btn-danger btn-sm" ng-click="voteUp()">Vote up! Score: {{post.votes}}</button></div>
+        </div>
+        </div>
+    </div>
 </div>
 
 
